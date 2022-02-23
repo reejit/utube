@@ -2,6 +2,7 @@ from ..utubebot import UtubeBot
 from pyrogram.types import Message
 from pyrogram import filters, Client
 from pySmartDL import SmartDL
+import os
 
 
 @UtubeBot.on_message(filters.command("download"))
@@ -15,3 +16,4 @@ async def Upload(client: Client, message: Message):
      download.start()
      video = download.get_dest()
      await client.send_video(chat_id=chat_id, video=video)
+     os.remove(video)
