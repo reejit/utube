@@ -1,7 +1,6 @@
 from ..utubebot import UtubeBot
 from pyrogram.types import Message
 from pyrogram import filters, Client
-from pyromod import listen
 from pySmartDL import SmartDL
 
 
