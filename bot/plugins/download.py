@@ -8,11 +8,10 @@ from pySmartDL import SmartDL
 @UtubeBot.on_message(filters.command("download"))
 async def Upload(client: Client, message: Message):
      chat_id = message.chat.id
-
-     link = await client.ask(chat_id, 'Send me video link', parse_mode='Markdown')    
-     if await is_cancel(message, link.text):
+     if len(message.command) == 1:
+        await message.reply_text("No link!")
         return
-     link = link.text
+     link = message.command[1]     
      download = SmartDL(link, progress_bar=False)
      download.start()
      video = download.get_dest()
